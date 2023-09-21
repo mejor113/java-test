@@ -21,4 +21,4 @@ sample:
       env: JAVA_VERSION
       type: string
       description: Version of the Java to be used
-      value: '1.8'
+      value: '11'
