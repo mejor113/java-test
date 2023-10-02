@@ -1,0 +1,16 @@
+namespace: sample
+sample:
+  defines: runnable
+  metadata:
+    name: sample
+    description: A simple Java application using Spring Boot and Thymeleaf
+    icon: https://emojiapi.dev/api/v1/robot.svg
+  containers:
+    sample:
+      build: .
+  variables:
+    java.version:
+      env: java.version
+      type: string
+      description: Java version used for the application
+      value: '1.8'
