@@ -1,0 +1,28 @@
+namespace: java-test
+
+sample-java-spring-boot-app:
+  defines: runnable
+  metadata:
+    name: sample-java-spring-boot-app
+    description: Java Spring Boot web application
+    icon: https://emojiapi.dev/api/v1/robot.svg
+  containers:
+    sample-java-spring-boot-app:
+      image: env-3371.registry.local/sample-java-spring-boot-app:main-53eedd9
+      build: .
+      dockerfile: Dockerfile.sample-java-spring-boot-app
+  services:
+    http-server:
+      description: Port for HTTP server
+      container: sample-java-spring-boot-app
+      port: 8080
+      host-port: 8080
+      publish: true
+      protocol: tcp
+  connections: {}
+  variables: {}
+
+stack:
+  defines: group
+  members:
+    - java-test/sample-java-spring-boot-app
