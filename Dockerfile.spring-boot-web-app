@@ -1,0 +1,19 @@
+FROM openjdk:8-jdk-alpine
+
+# Install Maven
+RUN apk add --no-cache maven
+
+# Copy the project files to the container
+COPY . /app
+
+# Set the working directory
+WORKDIR /app
+
+# Build the project
+RUN mvn clean package
+
+# Expose the port the app runs on
+EXPOSE 8080
+
+# Run the jar file
+ENTRYPOINT ["java","-jar","target/sample-0.0.1-SNAPSHOT.jar"]
